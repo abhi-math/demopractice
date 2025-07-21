@@ -28,24 +28,7 @@ public class AstrodentalController {
     @Autowired
     private ScheduleAppointmentService scheduleAppointmentService;
 
-    // @GetMapping("doGetLocations")
-    // public Mono<ResponseEntity<String>> doGetLocations() {
-    // System.out.println("getLocations called");
-
-    // return webClientService.getLocations().map(data -> ResponseEntity.ok(data));
-    // }
-
-    // @GetMapping("doGetOnlineSchedulingProjectSettings")
-    // public Mono<ResponseEntity<String>> doGetOnlineSchedulingProjectSettings() {
-    // return webClientService.getOnlineSchedulingProjectSettings().map(data ->
-    // ResponseEntity.ok(data));
-    // }
-
-    // @GetMapping("doGetScheduleTypes")
-    // public Mono<ResponseEntity<String>> doGetScheduleTypes() {
-    // return webClientService.getScheduleTypes().map(data ->
-    // ResponseEntity.ok(data));
-    // }
+    
 
     @GetMapping("doGetCalendarFreeDays/{doctor}/{appointmentType}")
     public ResponseEntity<List<CalenderResponse>> doGetCalendarFreeDays(@PathVariable String doctor,@PathVariable String appointmentType) {
