@@ -10,6 +10,7 @@ public class UiCheckController {
 
     @GetMapping(value = "/", produces = "text/html")
     public String getFirstPage() {
+        System.out.println("first page requested");
         return """
                 <html>
                     <body>

@@ -33,6 +33,7 @@ public class CalenderService {
             try {
                 
                 List<CalenderResponse> calendarResponses = webClientService.getCalendarFreeDays(scheduleResponse);
+                System.out.println("Calender Responded after fetching");
                 return calendarResponses;
             } catch (Exception e) {
                 System.err.println("Error in callCalender: " + e.getMessage());

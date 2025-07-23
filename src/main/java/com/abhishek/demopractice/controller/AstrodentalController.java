@@ -75,8 +75,11 @@ public class AstrodentalController {
         // String dateOfBirth="1999-02-02"; 
         // String phoneNumber="+11235157654";
 
+        System.out.println("bookAppointment requested");
+
         
         try {
+            
            return scheduleAppointmentService.doScheduleAppointment(doctor,appointmentType,appoitnmentDate,startTime,endTime,  firstName,  lastName,  email,  dateOfBirth,  phoneNumber).get("id").toString();
              
             

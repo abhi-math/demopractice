@@ -12,6 +12,7 @@ import com.abhishek.demopractice.model.ScheduleResponse;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,18 +65,19 @@ public class WebClientService {
     public List<CalenderResponse> getCalendarFreeDays(ScheduleResponse scheduleResponse) {
         try {
             Map<String, Object> requestBody = Map.of(
-                    // "from", LocalDate.now().toString(),
-                    // "to", LocalDate.now().plusMonths(2).toString(),
-                    // "locationId", 1,
-                    // "appointmentTypeId", scheduleResponse.getAppointmentType().getId(),
-                    // "roomId", scheduleResponse.getRoomId(),
-                    // "doctorId", scheduleResponse.getDoctor().getId()
-                    "from", "2025-07-08",
-                    "appointmentTypeId", 3,
+                    "from", LocalDate.now().toString(),
+                    "to", LocalDate.now().plusMonths(2).toString(),
                     "locationId", 1,
-                    "roomId", 16,
-                    "doctorId", 21,
-                    "to", "2025-09-08");
+                    "appointmentTypeId", scheduleResponse.getAppointmentType().getId(),
+                    "roomId", scheduleResponse.getRoomId(),
+                    "doctorId", scheduleResponse.getDoctor().getId()
+                    // "from", "2025-07-08",
+                    // "appointmentTypeId", 3,
+                    // "locationId", 1,
+                    // "roomId", 16,
+                    // "doctorId", 21,
+                    // "to", "2025-09-08"
+                    );
 
             System.out.println("requestbody: " + requestBody);
 
@@ -122,6 +124,8 @@ public class WebClientService {
             requestBody.put("dateOfBirth", dateOfBirth);// "2025-07-01"
             requestBody.put("phoneNumber", phoneNumber); // "+11235157654"
             requestBody.put("verificationToken", null);
+
+            System.out.println("schedule requestBody: "+ requestBody);
 
             return webClient.post()
                     .uri("doScheduleAppointment")
