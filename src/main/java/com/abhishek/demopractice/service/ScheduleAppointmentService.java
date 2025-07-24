@@ -22,15 +22,18 @@ public class ScheduleAppointmentService {
             String startTime,
             String endTime, String firstName, String lastName, String email, String dateOfBirth, String phoneNumber) {
 
-        // call this from controller with the body
-
-        // String doctor="Veerjinder Singh";
-        // String appointmentType="Emergency Exam";
-        // String appoitnmentDate= "2025-07-24";
-        // String startTime="09:00:00";
-        // String endTime="09:30:00";
+        
         Integer scheduleEntryId = scheduleAppointmentHelper.findScheduleEntryId(doctor, appointmentType,
                 appoitnmentDate, startTime);
+
+        if (scheduleEntryId==-1){
+            System.out.println("incorrect schedluleEntryId:");
+            System.out.println("doctor: "+doctor);
+            System.out.println("appointmentType: "+appointmentType);
+            System.out.println("appoitnmentDate: "+appoitnmentDate);
+            System.out.println("startTime: "+startTime);
+            return Map.of("error","incorrect input could not find any scheduleEntryId");
+        }
 
         // find scheduleEntryId from appointmentDate and startTime
 

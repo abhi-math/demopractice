@@ -28,7 +28,7 @@ public class ScheduleAppointmentHelper {
             }
         }
     }
-    return null; // or throw exception if preferred
+    return -1; // or throw exception if preferred
 }
 
 
