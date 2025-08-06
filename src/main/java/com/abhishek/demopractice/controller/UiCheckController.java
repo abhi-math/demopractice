@@ -22,6 +22,8 @@ public class UiCheckController {
                         <ul>
                             <li>/api/doGetCalendarFreeDays/{doctor}/{appointmentType}</li>
                             <li>/api/bookAppointment/{doctor}/{appointmentType}/{appointmentDate}/{startTime}/{endTime}/{firstName}/{lastName}/{email}/{dateOfBirth}/{phoneNumber}</li>
+                            <li>/api/doGetVapiCalendarFreeDays</li>
+                            <li>/api/doPostVapiBookAppointment</li>
                         </ul>
                     </body>
                 </html>

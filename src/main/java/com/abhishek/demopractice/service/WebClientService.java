@@ -42,7 +42,7 @@ public class WebClientService {
                     .onErrorReturn(new ScheduleResponse[0])
                     .block(); // Block only once
 
-            System.out.println("schedule response: " + Arrays.toString(responseArray));
+            System.out.println("schedule response:" + Arrays.toString(responseArray));
 
             scheduleMap = new HashMap<>();
             if (responseArray != null) {
@@ -66,18 +66,18 @@ public class WebClientService {
         try {
             Map<String, Object> requestBody = Map.of(
                     "from", LocalDate.now().toString(),
-                    "to", LocalDate.now().plusMonths(2).toString(),
+                    "to", LocalDate.now().plusDays(7).toString(),
                     "locationId", 1,
                     "appointmentTypeId", scheduleResponse.getAppointmentType().getId(),
                     "roomId", scheduleResponse.getRoomId(),
                     "doctorId", scheduleResponse.getDoctor().getId()
-                    // "from", "2025-07-08",
-                    // "appointmentTypeId", 3,
-                    // "locationId", 1,
-                    // "roomId", 16,
-                    // "doctorId", 21,
-                    // "to", "2025-09-08"
-                    );
+            // "from", "2025-07-08",
+            // "appointmentTypeId", 3,
+            // "locationId", 1,
+            // "roomId", 16,
+            // "doctorId", 21,
+            // "to", "2025-09-08"
+            );
 
             System.out.println("requestbody: " + requestBody);
 
@@ -125,7 +125,7 @@ public class WebClientService {
             requestBody.put("phoneNumber", phoneNumber); // "+11235157654"
             requestBody.put("verificationToken", null);
 
-            System.out.println("schedule requestBody: "+ requestBody);
+            System.out.println("schedule requestBody: " + requestBody);
 
             return webClient.post()
                     .uri("doScheduleAppointment")
