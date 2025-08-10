@@ -8,6 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.abhishek.demopractice.model.CalenderResponse;
 import com.abhishek.demopractice.model.ScheduleResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
@@ -125,7 +126,10 @@ public class WebClientService {
             requestBody.put("phoneNumber", phoneNumber); // "+11235157654"
             requestBody.put("verificationToken", null);
 
-            System.out.println("schedule requestBody: " + requestBody);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String requestBodyJson = objectMapper.writeValueAsString(requestBody);
+
+            System.out.println("schedule requestBody: " + requestBodyJson);
 
             return webClient.post()
                     .uri("doScheduleAppointment")
