@@ -20,10 +20,8 @@ public class UiCheckController {
                         <br>
                         <p><strong>Fetch through APIs:</strong></p>
                         <ul>
-                            <li>/api/doGetCalendarFreeDays/{doctor}/{appointmentType}</li>
-                            <li>/api/bookAppointment/{doctor}/{appointmentType}/{appointmentDate}/{startTime}/{endTime}/{firstName}/{lastName}/{email}/{dateOfBirth}/{phoneNumber}</li>
-                            <li>/api/doGetVapiCalendarFreeDays</li>
-                            <li>/api/doPostVapiBookAppointment</li>
+                            <li>/api/doGetCalendarFreeDays</li>
+                            <li>/api/doBookAppointment</li>
                         </ul>
                     </body>
                 </html>

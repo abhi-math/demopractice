@@ -67,7 +67,7 @@ public class WebClientService {
         try {
             Map<String, Object> requestBody = Map.of(
                     "from", LocalDate.now().toString(),
-                    "to", LocalDate.now().plusDays(7).toString(),
+                    "to", LocalDate.now().plusMonths(2).toString(),
                     "locationId", 1,
                     "appointmentTypeId", scheduleResponse.getAppointmentType().getId(),
                     "roomId", scheduleResponse.getRoomId(),
@@ -86,14 +86,7 @@ public class WebClientService {
                     .uri("doGetCalendarFreeDays")
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
-                    .header(HttpHeaders.REFERER, "https://admiredentalbranford.asprodental.com/")
-                    .header(HttpHeaders.ORIGIN, "https://admiredentalbranford.asprodental.com")
                     .header("TimeZone", "Asia/Calcutta")
-                    .header("X-Requested-With", "XMLHttpRequest")
-                    .header(HttpHeaders.USER_AGENT,
-                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36")
-                    .header("Cookie", "SESSION=NGEwNzgzNTktMTYwOS00NzhmLWE4ZTktNjU4M2NlYzY1NWIw") // required session
-                                                                                                  // cookie
                     .bodyValue(requestBody)
                     .retrieve()
                     .bodyToFlux(CalenderResponse.class)
@@ -135,12 +128,7 @@ public class WebClientService {
                     .uri("doScheduleAppointment")
                     .header(HttpHeaders.ACCEPT, "application/json")
                     .header(HttpHeaders.CONTENT_TYPE, "application/json")
-                    .header(HttpHeaders.COOKIE, "SESSION=Y2JlOTljNjUtNmZjMi00MTI0LWI4NmUtZDM0ZjQxYjU5MTk4")
-                    .header("Origin", "https://admiredentalbranford.asprodental.com")
-                    .header("Referer", "https://admiredentalbranford.asprodental.com/")
                     .header("TimeZone", "Asia/Calcutta")
-                    .header("User-Agent",
-                            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36")
                     .bodyValue(requestBody)
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
